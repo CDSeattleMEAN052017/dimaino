@@ -1,0 +1,17 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <h2><ul>Submitted Infomation</ul></h2>
+
+    <p>Name: <%= user.name %></p>
+    <p>Dojo Location: <%= user.location %></p>
+    <p>Favorite Language: <%= user.language %></p>
+    <p>Comment: <%= user.comment %></p>
+
+    <form action="/goBack" method="get">
+      <input type="submit" value="Go Back">
+    </form>
+</body>
+</html>

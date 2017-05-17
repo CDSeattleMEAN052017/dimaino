@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Message Board</title>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+      <h1>The Dojo Message Board</h1>
+      <hr>
+    <form action="/message" method="post">
+      <p>Name: <input type="text" name="name">
+      <p>Message: <textarea name="message"></textarea>
+      <input id="post" type="submit" value="Post message">
+    </form>
+    <% if(typeof(errors) != 'undefined' ) { %>
+      <% for (var x in errors) { %>
+        <h3><%= errors[x].message %></h3>
+      <% } %>
+    <% } else { %>
+      <% for(x in messages) { %>
+        <h3>Name: <%= messages[x].name %></h3>
+        <h3>Message: <%= messages[x].message %></h3>
+
+        <% for (var j = 0; j < messages[x]._comments.length; j++) { %>
+          <p><strong><%= messages[x]._comments[j].name %></strong> at <i><%= messages[x]._comments[j].createdAt %></i></p>
+          <p><%= messages[x]._comments[j].text %></p>
+        <% } %>
+
+        <form action=<%="/comment/" + messages[x]._id %> method="post">
+          <p class="margin">Name: </p><input class="comment_input" type="text" name="name">
+          <p class="margin">Comment: </p><textarea class="comment_text"name="comment"></textarea>
+          <input class="post2" type="submit" value="Post comment">
+        </form>
+      <% } %>
+    <% } %>
+  </body>
+</html>

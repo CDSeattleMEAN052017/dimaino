@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Survey Form</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <form action='/submitInfo' method='post'>
+    Your Name: <input type='text' name='name'>
+    Dojo Locations:
+    <select name="location">
+      <option value="Seattle">Seattle</option>
+      <option value="Bellevue">Bellevue</option>
+      <option value="Russia">Russia</option>
+      <option value="Air_Plane">Air Plane</option>
+    </select>
+    Favorite Language:
+    <select name='language'>
+      <option value="house">house</option>
+      <option value="mouse">mouse</option>
+      <option value="blouse">blouse</option>
+      <option value="guass">guass</option>
+    </select>
+    Comment (optional): <textarea name='comment'></textarea>
+    <input type='submit' value='Submit'>
+    </form>
+</body>
+</html>
